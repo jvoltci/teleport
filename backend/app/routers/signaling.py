@@ -115,11 +115,11 @@ async def websocket_endpoint(ws: WebSocket) -> None:
                 ice = data.get("iceCandidates") or []
                 if not code or not isinstance(answer, dict):
                     continue
-                room = await manager.submit_answer(code, answer, ice)
-                if room is None or room.host is None:
+                submitted = await manager.submit_answer(code, answer, ice)
+                if submitted is None or submitted.host is None:
                     continue
                 await _send(
-                    room.host,
+                    submitted.host,
                     {
                         "type": "answer-received",
                         "answer": answer,
@@ -132,10 +132,10 @@ async def websocket_endpoint(ws: WebSocket) -> None:
                 candidate = data.get("candidate")
                 if not code or candidate is None:
                     continue
-                room = await manager.get(code)
-                if room is None:
+                existing = await manager.get(code)
+                if existing is None:
                     continue
-                peer = _peer_of(room, ws)
+                peer = _peer_of(existing, ws)
                 if peer is not None:
                     await _send(peer, {"type": "ice-candidate", "candidate": candidate})
 
@@ -147,8 +147,8 @@ async def websocket_endpoint(ws: WebSocket) -> None:
     except Exception:  # pragma: no cover
         logger.exception("ws.error")
     finally:
-        room = await manager.remove_websocket(ws)
-        if room is not None:
-            survivor = _peer_of(room, ws)
+        removed = await manager.remove_websocket(ws)
+        if removed is not None:
+            survivor = _peer_of(removed, ws)
             if survivor is not None:
                 await _send(survivor, {"type": "peer-disconnected"})

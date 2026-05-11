@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 import logging
+from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
-from typing import AsyncIterator
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -38,7 +38,7 @@ def create_app() -> FastAPI:
         title="Teleport Signaling",
         version="0.1.0",
         lifespan=lifespan,
-        docs_url=None,        # OSS server: don't expose Swagger UI by default
+        docs_url=None,  # OSS server: don't expose Swagger UI by default
         redoc_url=None,
         openapi_url=None,
     )

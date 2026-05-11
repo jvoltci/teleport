@@ -47,12 +47,20 @@ def test_duplicate_room_rejected(client: TestClient) -> None:
     with client.websocket_connect("/ws") as host1, client.websocket_connect("/ws") as host2:
         _send(
             host1,
-            {"reqId": "a", "type": "create-room", "data": {"code": "222222", "offer": OFFER, "iceCandidates": []}},
+            {
+                "reqId": "a",
+                "type": "create-room",
+                "data": {"code": "222222", "offer": OFFER, "iceCandidates": []},
+            },
         )
         assert _recv(host1)["success"] is True
         _send(
             host2,
-            {"reqId": "b", "type": "create-room", "data": {"code": "222222", "offer": OFFER, "iceCandidates": []}},
+            {
+                "reqId": "b",
+                "type": "create-room",
+                "data": {"code": "222222", "offer": OFFER, "iceCandidates": []},
+            },
         )
         nack = _recv(host2)
         assert nack["error"] == "Room already exists"
@@ -105,7 +113,11 @@ def test_ice_trickle_relays(client: TestClient) -> None:
     with client.websocket_connect("/ws") as host, client.websocket_connect("/ws") as joiner:
         _send(
             host,
-            {"reqId": "h", "type": "create-room", "data": {"code": "444444", "offer": OFFER, "iceCandidates": []}},
+            {
+                "reqId": "h",
+                "type": "create-room",
+                "data": {"code": "444444", "offer": OFFER, "iceCandidates": []},
+            },
         )
         _recv(host)
         _send(joiner, {"reqId": "j", "type": "join-room", "data": {"code": "444444"}})
@@ -123,7 +135,11 @@ def test_peer_disconnect_notifies_other(client: TestClient) -> None:
     with client.websocket_connect("/ws") as host:
         _send(
             host,
-            {"reqId": "h", "type": "create-room", "data": {"code": "555555", "offer": OFFER, "iceCandidates": []}},
+            {
+                "reqId": "h",
+                "type": "create-room",
+                "data": {"code": "555555", "offer": OFFER, "iceCandidates": []},
+            },
         )
         _recv(host)
 
@@ -143,7 +159,11 @@ def test_room_full_rejects_third_peer(client: TestClient) -> None:
     ):
         _send(
             host,
-            {"reqId": "h", "type": "create-room", "data": {"code": "666666", "offer": OFFER, "iceCandidates": []}},
+            {
+                "reqId": "h",
+                "type": "create-room",
+                "data": {"code": "666666", "offer": OFFER, "iceCandidates": []},
+            },
         )
         _recv(host)
         _send(joiner, {"reqId": "j", "type": "join-room", "data": {"code": "666666"}})

@@ -14,6 +14,7 @@ out/
 dist/
 build/
 *.tsbuildinfo
+*.egg-info/
 next-env.d.ts
 
 # Environment

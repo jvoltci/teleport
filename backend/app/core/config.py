@@ -16,9 +16,7 @@ class Settings:
     cors_origins: list[str] = field(
         default_factory=lambda: _parse_origins(os.getenv("CORS_ORIGINS"))
     )
-    room_ttl_seconds: int = field(
-        default_factory=lambda: int(os.getenv("ROOM_TTL_SECONDS", "60"))
-    )
+    room_ttl_seconds: int = field(default_factory=lambda: int(os.getenv("ROOM_TTL_SECONDS", "60")))
     log_level: str = field(default_factory=lambda: os.getenv("LOG_LEVEL", "INFO"))
 
 

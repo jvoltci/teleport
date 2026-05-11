@@ -1,0 +1,11 @@
+# Default owners for all files
+* @OWNER
+
+# Backend (signaling protocol changes need extra eyes)
+/backend/ @OWNER
+/backend/app/routers/signaling.py @OWNER
+
+# Anything that affects security defaults
+/SECURITY.md @OWNER
+/frontend/src/lib/webrtc.ts @OWNER
+/frontend/src/lib/teleport-constants.ts @OWNER

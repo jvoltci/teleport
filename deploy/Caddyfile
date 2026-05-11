@@ -1,0 +1,22 @@
+{
+    email {$ACME_EMAIL}
+}
+
+{$DOMAIN} {
+    encode zstd gzip
+
+    # WebSocket signaling endpoint
+    @ws {
+        path /ws*
+    }
+    reverse_proxy @ws signaling:4000
+
+    # Health + status
+    reverse_proxy /healthz signaling:4000
+    reverse_proxy / signaling:4000
+
+    # Default-deny: anything else 404s (no inadvertent backend exposure)
+    handle {
+        respond 404
+    }
+}

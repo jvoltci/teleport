@@ -1,0 +1,43 @@
+name: teleport
+
+services:
+  signaling:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    image: teleport-signaling:latest
+    restart: unless-stopped
+    environment:
+      PORT: 4000
+      CORS_ORIGINS: ${CORS_ORIGINS:?set CORS_ORIGINS in .env, e.g. https://your-username.github.io}
+      ROOM_TTL_SECONDS: ${ROOM_TTL_SECONDS:-60}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+    expose:
+      - "4000"
+    networks:
+      - web
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    environment:
+      DOMAIN: ${DOMAIN:?set DOMAIN in .env, e.g. signal.yourdomain.com}
+      ACME_EMAIL: ${ACME_EMAIL:-admin@example.com}
+    depends_on:
+      - signaling
+    networks:
+      - web
+
+networks:
+  web:
+
+volumes:
+  caddy_data:
+  caddy_config:

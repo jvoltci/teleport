@@ -31,7 +31,7 @@ Run both at once: `docker compose -f deploy/docker-compose.dev.yml up`.
 
 ## Picking what to work on
 
-- **First-time contributors:** look at issues tagged [`good-first-issue`](https://github.com/OWNER/teleport/issues?q=label%3Agood-first-issue).
+- **First-time contributors:** look at issues tagged [`good-first-issue`](https://github.com/jvoltci/teleport/issues?q=label%3Agood-first-issue).
 - **Bigger ideas:** open an issue *before* writing code, so we can agree on the approach. We don't enjoy declining a finished PR.
 - **Bugs you found:** file an issue with reproduction steps, then feel free to fix it yourself.
 
@@ -105,4 +105,4 @@ Scopes: `frontend`, `backend`, `deploy`, `docs`, `ci`.
 
 ## Questions?
 
-Open a [discussion](https://github.com/OWNER/teleport/discussions) or drop into an issue. We answer.
+Open a [discussion](https://github.com/jvoltci/teleport/discussions) or drop into an issue. We answer.

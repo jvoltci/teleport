@@ -7,11 +7,11 @@
 Drop a file, share a 6-digit code, watch it teleport directly to the other device. Your data never touches a server.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
-[![CI](https://github.com/OWNER/teleport/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/teleport/actions/workflows/ci.yml)
-[![Deploy](https://github.com/OWNER/teleport/actions/workflows/pages.yml/badge.svg)](https://github.com/OWNER/teleport/actions/workflows/pages.yml)
+[![CI](https://github.com/jvoltci/teleport/actions/workflows/ci.yml/badge.svg)](https://github.com/jvoltci/teleport/actions/workflows/ci.yml)
+[![Deploy](https://github.com/jvoltci/teleport/actions/workflows/pages.yml/badge.svg)](https://github.com/jvoltci/teleport/actions/workflows/pages.yml)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](./CONTRIBUTING.md)
 
-[**Live demo**](https://OWNER.github.io/teleport) · [**Self-host**](#self-hosting) · [**Architecture**](./ARCHITECTURE.md) · [**Security**](./SECURITY.md)
+[**Live demo**](https://jvoltci.github.io/teleport) · [**Self-host**](#self-hosting) · [**Architecture**](./ARCHITECTURE.md) · [**Security**](./SECURITY.md)
 
 </div>
 
@@ -42,7 +42,7 @@ The only thing the server ever sees is the WebRTC handshake — a few hundred by
 
 ## Quickstart — try it in 60 seconds
 
-1. Open the [live demo](https://OWNER.github.io/teleport) on **Device A**.
+1. Open the [live demo](https://jvoltci.github.io/teleport) on **Device A**.
 2. Click **Start session** — a 6-digit code appears.
 3. Open the same URL on **Device B**, type the code (or scan the QR).
 4. Drop a file on either device. It teleports.
@@ -176,7 +176,7 @@ Want to help? Pick anything below — or open an issue with a new idea.
 
 We welcome contributions of every size — from typo fixes to new features. Start with [CONTRIBUTING.md](./CONTRIBUTING.md). All contributors agree to follow the [Code of Conduct](./CODE_OF_CONDUCT.md).
 
-**Good first issues** are tagged [`good-first-issue`](https://github.com/OWNER/teleport/issues?q=label%3Agood-first-issue) — they're small, well-scoped, and reviewed quickly.
+**Good first issues** are tagged [`good-first-issue`](https://github.com/jvoltci/teleport/issues?q=label%3Agood-first-issue) — they're small, well-scoped, and reviewed quickly.
 
 ## Security
 

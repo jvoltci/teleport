@@ -42,7 +42,7 @@ It **cannot** decrypt file contents, clipboard text, video, or audio. Self-host 
 
 The 6-digit code is the only piece of secrecy in the join flow. It is:
 
-- Generated client-side via `Math.random()` (currently — we plan to migrate to `crypto.getRandomValues` for stronger entropy; tracked in [issue #N](https://github.com/OWNER/teleport/issues)).
+- Generated client-side via `Math.random()` (currently — we plan to migrate to `crypto.getRandomValues` for stronger entropy; tracked in [issue #N](https://github.com/jvoltci/teleport/issues)).
 - Single-use (a room can only be joined once).
 - TTL-bounded (default 60 seconds of inactivity → cleanup).
 

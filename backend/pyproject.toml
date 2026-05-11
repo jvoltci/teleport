@@ -2,7 +2,6 @@
 name = "teleport-signaling"
 version = "0.1.0"
 description = "WebSocket signaling server for the Teleport WebRTC app"
-readme = "../README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
 dependencies = [

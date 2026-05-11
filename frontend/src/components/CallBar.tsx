@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { motion } from 'framer-motion';
 import { Mic, MicOff, Camera, CameraOff, Monitor, MonitorOff, PhoneOff } from 'lucide-react';
-import type { MediaState } from '../_hooks/useMediaStreams';
+import type { MediaState } from '../hooks/useMediaStreams';
 
 interface CallBarProps {
   mediaState: MediaState;

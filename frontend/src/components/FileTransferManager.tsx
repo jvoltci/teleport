@@ -3,7 +3,7 @@
 import React, { memo, useCallback, useEffect } from 'react';
 import { DropZone } from './DropZone';
 import { TransferProgress } from './TransferProgress';
-import { useFileTransfer } from '../_hooks/useFileTransfer';
+import { useFileTransfer } from '../hooks/useFileTransfer';
 
 interface FileTransferManagerProps {
   fileChannel: RTCDataChannel | null;
